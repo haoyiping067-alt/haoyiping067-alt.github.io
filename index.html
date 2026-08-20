@@ -13,6 +13,8 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080809'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23f0b44c'/%3E%3Ccircle cx='37' cy='27' r='8' fill='%23080809'/%3E%3C/svg%3E"
     />
     <link rel="stylesheet" href="styles.css?v=glass-type-121" />
+    <link rel="modulepreload" href="scroll-system.js?v=target-scroll-4" />
+    <link rel="modulepreload" href="assets/vendor/lenis.mjs" />
   </head>
   <body>
     <span class="global-cursor" aria-hidden="true"></span>
@@ -200,19 +202,19 @@
 
         <div class="artifact-rail reveal" aria-label="作品视觉索引">
           <figure>
-            <img src="assets/catalog-overview.png" alt="作品集目录总述预览" width="1468" height="535" />
+            <img src="assets/catalog-overview.png" alt="作品集目录总述预览" width="1468" height="535" loading="lazy" decoding="async" />
             <figcaption>Catalog</figcaption>
           </figure>
           <figure>
-            <img src="assets/ux-design.png" alt="体验设计作品预览" width="1070" height="535" />
+            <img src="assets/ux-design.png" alt="体验设计作品预览" width="1070" height="535" loading="lazy" decoding="async" />
             <figcaption>UX</figcaption>
           </figure>
           <figure>
-            <img src="assets/visual-design.png" alt="品牌视觉作品预览" width="704" height="535" />
+            <img src="assets/visual-design.png" alt="品牌视觉作品预览" width="704" height="535" loading="lazy" decoding="async" />
             <figcaption>Visual</figcaption>
           </figure>
           <figure>
-            <img src="assets/aiux-workflow.png" alt="AIUX 工作流作品预览" width="1070" height="535" />
+            <img src="assets/aiux-workflow.png" alt="AIUX 工作流作品预览" width="1070" height="535" loading="lazy" decoding="async" />
             <figcaption>AIUX</figcaption>
           </figure>
         </div>
@@ -227,6 +229,7 @@
               alt="作品集与设计工作的工作台场景"
               width="557"
               height="683"
+              loading="lazy"
               decoding="async"
               data-rgb="1"
               data-index="0"
@@ -637,7 +640,7 @@
               <h3>WECHAT</h3>
               <div class="contact-channel-main contact-channel-wechat">
                 <button class="contact-qr-preview" type="button" data-qr-open aria-label="放大微信二维码">
-                  <img src="assets/contact/wechat-qr.png" alt="郝一平的微信二维码" width="672" height="672" />
+                  <img src="assets/contact/wechat-qr.png" alt="郝一平的微信二维码" width="672" height="672" loading="lazy" decoding="async" />
                 </button>
                 <span>
                   <strong>EVAN</strong>
@@ -690,13 +693,13 @@
           <div class="contact-qr-card" data-lenis-prevent>
             <button class="contact-qr-close" type="button" data-qr-close aria-label="关闭二维码">×</button>
             <p id="wechat-qr-title">WECHAT / EVAN</p>
-            <img src="assets/contact/wechat-qr.png" alt="郝一平的微信二维码" width="672" height="672" />
+            <img src="assets/contact/wechat-qr.png" alt="郝一平的微信二维码" width="672" height="672" loading="lazy" decoding="async" />
             <span>扫描二维码添加微信</span>
           </div>
         </dialog>
       </section>
     </main>
 
-    <script type="module" src="script.js?v=history-scroll-nav-11"></script>
+    <script type="module" src="script.js?v=history-scroll-nav-12" fetchpriority="high"></script>
   </body>
 </html>
