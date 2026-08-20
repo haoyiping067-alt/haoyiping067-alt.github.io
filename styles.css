@@ -2285,24 +2285,22 @@ p {
   }
 
   .nav-pill {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     width: 100%;
     max-width: 100%;
-    gap: var(--nav-pill-gap);
+    gap: 0;
     height: var(--mobile-pill-height);
-    overflow-x: auto;
-    justify-content: flex-start;
+    overflow: hidden;
     justify-self: end;
     padding: var(--nav-pill-gap);
-    scrollbar-width: none;
-  }
-
-  .nav-pill::-webkit-scrollbar {
-    display: none;
   }
 
   .nav-pill a,
   .nav-pill button {
-    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    place-items: center;
     padding: 0.54rem 0.42rem;
     font-size: 0.65rem;
     white-space: nowrap;
