@@ -118,7 +118,7 @@ export function initGlassCurtainScene(canvas) {
     veil.classList.add("is-fallback");
   };
 
-  const texturePromise = loadTexture(canvas.dataset.texture || "assets/work-sunset.png")
+  const texturePromise = loadTexture(canvas.dataset.texture || "assets/work-sunset.webp")
     .then((texture) => {
       if (destroyed) {
         texture.dispose();
@@ -311,7 +311,7 @@ export function initGlassCurtainScene(canvas) {
   window.addEventListener("pointermove", updatePointer, { passive: true });
 
   const unsubscribe = subscribeVisualFrame((_scrollState, time) => {
-    if (!ready || !inViewport || destroyed || !star) return;
+    if (!ready || !inViewport || document.hidden || destroyed || !star) return;
 
     // These are the reference component's original input equations.
     easedX += POINTER_DAMPING * (pointerX - easedX);

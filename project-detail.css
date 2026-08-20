@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "Alibaba PuHuiTi";
-  src: url("assets/fonts/alibaba-puhuiti-regular.ttf") format("truetype");
+  src: url("assets/fonts/alibaba-puhuiti-regular-subset.woff2") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "Alibaba PuHuiTi";
-  src: url("assets/fonts/alibaba-puhuiti-medium.ttf") format("truetype");
+  src: url("assets/fonts/alibaba-puhuiti-medium-subset.woff2") format("truetype");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: "Alibaba PuHuiTi";
-  src: url("assets/fonts/alibaba-puhuiti-bold.ttf") format("truetype");
+  src: url("assets/fonts/alibaba-puhuiti-bold-subset.woff2") format("truetype");
   font-style: normal;
   font-weight: 700;
   font-display: swap;

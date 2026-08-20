@@ -52,13 +52,13 @@
 
 @font-face {
   font-family: "Erya Xin Dahei";
-  src: url("assets/fonts/erya-xin-dahei.ttf") format("truetype");
+  src: url("assets/fonts/erya-xin-dahei-subset.woff2") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Alibaba PuHuiTi";
-  src: url("assets/fonts/alibaba-puhuiti-regular.ttf") format("truetype");
+  src: url("assets/fonts/alibaba-puhuiti-regular-subset.woff2") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -66,7 +66,7 @@
 
 @font-face {
   font-family: "Alibaba PuHuiTi";
-  src: url("assets/fonts/alibaba-puhuiti-medium.ttf") format("truetype");
+  src: url("assets/fonts/alibaba-puhuiti-medium-subset.woff2") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -74,7 +74,7 @@
 
 @font-face {
   font-family: "Alibaba PuHuiTi";
-  src: url("assets/fonts/alibaba-puhuiti-bold.ttf") format("truetype");
+  src: url("assets/fonts/alibaba-puhuiti-bold-subset.woff2") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -132,6 +132,7 @@ body {
   height: 1.2rem;
   place-items: center;
   background: transparent;
+  mix-blend-mode: difference;
   opacity: 0;
   pointer-events: none;
   will-change: transform, opacity;
@@ -144,23 +145,6 @@ body {
   font-family: "Alibaba PuHuiTi", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1.2rem;
   line-height: 1;
-}
-
-.global-cursor-text-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 101;
-  width: 100vw;
-  height: 100vh;
-  overflow: visible;
-  pointer-events: none;
-  opacity: 0;
-  will-change: opacity;
-  transition: opacity 140ms var(--ease);
-}
-
-.global-cursor-text-overlay.is-visible {
-  opacity: 1;
 }
 
 .global-cursor.is-visible {

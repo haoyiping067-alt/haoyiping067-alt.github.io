@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JML Target Logo Check</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f7f2ee;
+        color: #181412;
+        font-family: Helvetica, Arial, "PingFang SC", sans-serif;
+      }
+
+      main {
+        display: grid;
+        gap: 32px;
+        width: min(1180px, calc(100% - 48px));
+        margin: 48px auto;
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 28px;
+        line-height: 1.15;
+      }
+
+      p {
+        color: #6a5e58;
+        line-height: 1.7;
+      }
+
+      .hero {
+        display: grid;
+        padding: 28px;
+        border: 1px solid #dfd5cf;
+        background: #fffaf7;
+        place-items: center;
+      }
+
+      .hero img {
+        width: min(920px, 100%);
+        height: auto;
+      }
+
+      .board {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+      }
+
+      .tile {
+        display: grid;
+        min-height: 156px;
+        padding: 20px;
+        border: 1px solid #dfd5cf;
+        background: #fffaf7;
+        place-items: center;
+      }
+
+      .label {
+        align-self: end;
+        margin-top: 16px;
+        color: #6a5e58;
+        font-size: 13px;
+      }
+
+      .dark {
+        background: #050505;
+      }
+
+      .dark .label {
+        color: #d8cdc5;
+      }
+
+      .dark img {
+        filter: invert(1);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>JML 目标版本自查</h1>
+        <p>这版以你指定的母版为准，不再重画成其他风格。当前文件是位图母版检查，正式商用还需要人工转矢量。</p>
+      </header>
+
+      <section class="hero" aria-label="target logo full lockup">
+        <img src="jml-target-reference.png" alt="JML target logo full lockup" />
+      </section>
+
+      <section class="board" aria-label="small size checks on light background">
+        <div class="tile">
+          <img src="jml-target-reference.png" width="96" height="63" alt="JML target logo at 96 pixels wide" />
+          <span class="label">96px / full lockup lower bound</span>
+        </div>
+        <div class="tile">
+          <img src="jml-target-reference.png" width="160" height="104" alt="JML target logo at 160 pixels wide" />
+          <span class="label">160px / web header</span>
+        </div>
+        <div class="tile">
+          <img src="jml-target-reference.png" width="240" height="157" alt="JML target logo at 240 pixels wide" />
+          <span class="label">240px / card and seal</span>
+        </div>
+        <div class="tile">
+          <img src="jml-target-reference.png" width="360" height="235" alt="JML target logo at 360 pixels wide" />
+          <span class="label">360px / presentation</span>
+        </div>
+      </section>
+
+      <section class="board" aria-label="small size checks on dark background">
+        <div class="tile dark">
+          <img src="jml-target-reference.png" width="96" height="63" alt="JML target logo at 96 pixels wide reversed" />
+          <span class="label">96px / reversed preview</span>
+        </div>
+        <div class="tile dark">
+          <img src="jml-target-reference.png" width="160" height="104" alt="JML target logo at 160 pixels wide reversed" />
+          <span class="label">160px / reversed preview</span>
+        </div>
+        <div class="tile dark">
+          <img src="jml-target-reference.png" width="240" height="157" alt="JML target logo at 240 pixels wide reversed" />
+          <span class="label">240px / reversed preview</span>
+        </div>
+        <div class="tile dark">
+          <img src="jml-target-reference.png" width="360" height="235" alt="JML target logo at 360 pixels wide reversed" />
+          <span class="label">360px / reversed preview</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

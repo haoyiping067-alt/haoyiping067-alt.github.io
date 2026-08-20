@@ -8,11 +8,33 @@
       name="description"
       content="郝一平个人设计网站，呈现体验设计、品牌视觉、B端设计、AIUX 工作流与项目复盘。"
     />
+    <script>
+      (() => {
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        const navigationEntry = performance.getEntriesByType?.("navigation")[0];
+        const shouldStartAtTop =
+          !window.location.hash && (!navigationEntry || navigationEntry.type !== "back_forward");
+        const resetInitialScroll = () => {
+          if (shouldStartAtTop && !window.location.hash) window.scrollTo(0, 0);
+        };
+
+        resetInitialScroll();
+        window.addEventListener("load", () => {
+          resetInitialScroll();
+          window.requestAnimationFrame(resetInitialScroll);
+        }, { once: true });
+        window.addEventListener("pageshow", (event) => {
+          if (!event.persisted) resetInitialScroll();
+        });
+      })();
+    </script>
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080809'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23f0b44c'/%3E%3Ccircle cx='37' cy='27' r='8' fill='%23080809'/%3E%3C/svg%3E"
     />
     <link rel="stylesheet" href="styles.css?v=glass-type-122" />
+    <link rel="preload" as="image" href="assets/command-hero-video-first.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/work-sunset.webp" fetchpriority="high" />
     <link rel="modulepreload" href="scroll-system.js?v=target-scroll-4" />
     <link rel="modulepreload" href="assets/vendor/lenis.mjs" />
   </head>
@@ -21,15 +43,6 @@
     <div class="route-loader" aria-hidden="true">
       <span class="route-loader-mark">✦</span>
     </div>
-    <svg class="global-cursor-text-overlay" aria-hidden="true" focusable="false">
-      <defs>
-        <mask id="global-cursor-text-mask" maskUnits="userSpaceOnUse">
-          <rect class="global-cursor-mask-backdrop" width="100%" height="100%" fill="black" />
-          <text id="global-cursor-mask-text" fill="white" dominant-baseline="alphabetic"></text>
-        </mask>
-      </defs>
-      <circle id="global-cursor-text-circle" fill="black" mask="url(#global-cursor-text-mask)" />
-    </svg>
     <header class="site-header" aria-label="网站导航">
       <a class="brand-mark liquid" href="#home" aria-label="回到首页" data-magnet data-magnet-strength="0.08">
         <img src="assets/jml-logo-white.png" alt="JML" width="407" height="226" />
@@ -52,7 +65,7 @@
             muted
             playsinline
             preload="auto"
-            poster="assets/command-hero-video-first.png?v=20260728-first-frame"
+            poster="assets/command-hero-video-first.webp?v=20260728-first-frame"
             aria-hidden="true"
           ></video>
         </div>
@@ -93,18 +106,18 @@
         <a class="work-veil" href="#work" aria-label="进入作品总览">
           <img
             class="work-veil-image"
-            src="assets/work-sunset.png"
+            src="assets/work-sunset.webp"
             alt=""
             width="2748"
             height="1332"
             aria-hidden="true"
-            loading="lazy"
+            loading="eager"
             decoding="async"
-            fetchpriority="low"
+            fetchpriority="high"
           />
           <canvas
             class="work-veil-canvas"
-            data-texture="assets/work-sunset.png"
+            data-texture="assets/work-sunset.webp"
             aria-hidden="true"
           ></canvas>
           <span class="work-cursor" aria-hidden="true"></span>
@@ -202,11 +215,11 @@
 
         <div class="artifact-rail reveal" aria-label="作品视觉索引">
           <figure>
-            <img src="assets/catalog-overview.png" alt="作品集目录总述预览" width="1468" height="535" loading="lazy" decoding="async" />
+            <img src="assets/catalog-overview.webp" alt="作品集目录总述预览" width="1468" height="535" loading="lazy" decoding="async" />
             <figcaption>Catalog</figcaption>
           </figure>
           <figure>
-            <img src="assets/ux-design.png" alt="体验设计作品预览" width="1070" height="535" loading="lazy" decoding="async" />
+            <img src="assets/ux-design.webp" alt="体验设计作品预览" width="1070" height="535" loading="lazy" decoding="async" />
             <figcaption>UX</figcaption>
           </figure>
           <figure>
@@ -214,7 +227,7 @@
             <figcaption>Visual</figcaption>
           </figure>
           <figure>
-            <img src="assets/aiux-workflow.png" alt="AIUX 工作流作品预览" width="1070" height="535" loading="lazy" decoding="async" />
+            <img src="assets/aiux-workflow.webp" alt="AIUX 工作流作品预览" width="1070" height="535" loading="lazy" decoding="async" />
             <figcaption>AIUX</figcaption>
           </figure>
         </div>
@@ -225,7 +238,7 @@
           <figure class="profile-showcase-media">
             <img
               class="profile-ripple-image webgl"
-              src="assets/profile-showcase.png"
+              src="assets/profile-showcase.webp"
               alt="作品集与设计工作的工作台场景"
               width="557"
               height="683"
@@ -264,7 +277,7 @@
           <article class="service-slide is-active" data-service-slide="0">
             <img
               class="service-slide-image"
-              src="assets/service-app.jpg"
+              src="assets/service-app.webp"
               alt="APP 和小程序设计作品展示"
               width="2560"
               height="1440"
@@ -291,7 +304,7 @@
           <article class="service-slide" data-service-slide="1">
             <img
               class="service-slide-image"
-              src="assets/service-web.jpg"
+              src="assets/service-web.webp"
               alt="WEB 和 SaaS 设计作品展示"
               width="2560"
               height="1440"
@@ -316,7 +329,7 @@
           <article class="service-slide" data-service-slide="2">
             <img
               class="service-slide-image"
-              src="assets/service-brand.jpg"
+              src="assets/service-brand.webp"
               alt="品牌升级和平面物料设计作品展示"
               width="2560"
               height="1440"
@@ -365,7 +378,7 @@
         <div class="project-grid" aria-label="精选项目">
           <a class="project-card" href="projects/mcake-brand/" data-project-card data-route-transition aria-label="打开项目：MCAKE 品牌官网">
             <span class="project-card-media">
-              <img class="project-ripple-image webgl" src="assets/projects/mcake-website-cover.jpg" alt="MCAKE 品牌官网项目预览" width="2040" height="1200" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+              <img class="project-ripple-image webgl" src="assets/projects/mcake-website-cover.webp" alt="MCAKE 品牌官网项目预览" width="2040" height="1200" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
             </span>
             <span class="project-card-tags" aria-label="项目标签">
               <span>商城</span><span>品牌官网</span><span>响应式</span><span>TOB</span>
@@ -375,7 +388,7 @@
 
           <a class="project-card" href="projects/mcake-miniapp/" data-project-card data-route-transition aria-label="打开项目：MCAKE 小程序">
             <span class="project-card-media">
-              <img class="project-ripple-image webgl" src="assets/projects/mcake-miniapp.jpg" alt="MCAKE 小程序项目预览" width="1920" height="1260" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+              <img class="project-ripple-image webgl" src="assets/projects/mcake-miniapp.webp" alt="MCAKE 小程序项目预览" width="1920" height="1260" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
             </span>
             <span class="project-card-tags" aria-label="项目标签">
               <span>移动端</span><span>业务增长</span><span>品牌透传</span>
@@ -385,7 +398,7 @@
 
           <a class="project-card" href="projects/yan-website/" data-project-card data-route-transition aria-label="打开项目：原麦山丘品牌官网">
             <span class="project-card-media">
-              <img class="project-ripple-image webgl" src="assets/projects/yan-website.png" alt="原麦山丘品牌官网项目预览" width="1920" height="1164" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+              <img class="project-ripple-image webgl" src="assets/projects/yan-website.webp" alt="原麦山丘品牌官网项目预览" width="1920" height="1164" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
             </span>
             <span class="project-card-tags" aria-label="项目标签">
               <span>品牌官网</span><span>门户</span><span>展示</span>
@@ -395,7 +408,7 @@
 
           <a class="project-card" href="projects/yan-miniapp/" data-project-card data-route-transition aria-label="打开项目：原麦山丘小程序">
             <span class="project-card-media">
-              <img class="project-ripple-image webgl" src="assets/projects/yan-miniapp.png" alt="原麦山丘小程序项目预览" width="2022" height="1256" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+              <img class="project-ripple-image webgl" src="assets/projects/yan-miniapp.webp" alt="原麦山丘小程序项目预览" width="2022" height="1256" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
             </span>
             <span class="project-card-tags" aria-label="项目标签">
               <span>移动端</span><span>转化率</span><span>体验升级</span><span>业务增长</span>
@@ -405,7 +418,7 @@
 
           <a class="project-card" href="projects/brand-materials/" data-project-card data-route-transition aria-label="打开项目：品牌与平面物料">
             <span class="project-card-media">
-              <img class="project-ripple-image webgl" src="assets/projects/brand-materials.jpg" alt="品牌与平面物料项目预览" width="2560" height="1440" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+              <img class="project-ripple-image webgl" src="assets/service-brand.webp" alt="品牌与平面物料项目预览" width="2560" height="1440" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
             </span>
             <span class="project-card-tags" aria-label="项目标签">
               <span>品牌重塑</span><span>运营物料</span><span>平面设计</span>
@@ -415,7 +428,7 @@
 
           <a class="project-card" href="projects/hougu-website/" data-project-card data-route-transition aria-label="打开项目：后古婚纱摄影品牌官网">
             <span class="project-card-media">
-              <img class="project-ripple-image webgl" src="assets/projects/hougu-website.png" alt="后古婚纱摄影品牌官网项目预览" width="3022" height="1628" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+              <img class="project-ripple-image webgl" src="assets/projects/hougu-website.webp" alt="后古婚纱摄影品牌官网项目预览" width="3022" height="1628" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
             </span>
             <span class="project-card-tags" aria-label="项目标签">
               <span>品牌官网</span><span>门户</span><span>品牌服务</span><span>商业转化</span>
@@ -432,7 +445,7 @@
           <figure class="about-media" data-ripple-frame>
             <img
               class="about-ripple-image webgl"
-              src="assets/about-evan-4k.png"
+              src="assets/about-evan-4k.webp"
               alt="郝一平身穿黑色西装坐在椅子上的个人肖像"
               width="4065"
               height="4096"
@@ -700,6 +713,6 @@
       </section>
     </main>
 
-    <script type="module" src="script.js?v=history-scroll-nav-12" fetchpriority="high"></script>
+    <script type="module" src="script.js?v=initial-priority-15" fetchpriority="high"></script>
   </body>
 </html>

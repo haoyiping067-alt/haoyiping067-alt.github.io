@@ -39,160 +39,17 @@ if (!prefersReducedMotion && window.matchMedia("(hover: hover) and (pointer: fin
 }
 
 const globalCursor = document.querySelector(".global-cursor");
-const globalCursorTextOverlay = document.querySelector(".global-cursor-text-overlay");
-const globalCursorTextCircle = document.querySelector("#global-cursor-text-circle");
-const globalCursorMaskText = document.querySelector("#global-cursor-mask-text");
 
-if (
-  globalCursor &&
-  globalCursorTextOverlay &&
-  globalCursorTextCircle &&
-  globalCursorMaskText &&
-  window.matchMedia("(pointer: fine)").matches
-) {
+if (globalCursor && window.matchMedia("(pointer: fine)").matches) {
   const target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
   const current = { x: target.x, y: target.y };
   const followRate = prefersReducedMotion ? 1 : 0.18;
-  const cursorRadius = 9.2;
   let cursorVisible = false;
-  let activeTextElement = null;
-  let activeTextVersion = -1;
   let cursorRafId = 0;
-  let lastHitTestX = Number.NaN;
-  let lastHitTestY = Number.NaN;
-  let lastMaskScrollY = window.scrollY;
-  let maskLayoutVersion = 0;
-  let maskLayoutDirty = false;
-  let suppressCursorText = false;
-  const maskCache = new WeakMap();
-
-  const getTextElement = (x, y) => {
-    const element = document.elementFromPoint(x, y);
-    const textElement = element?.closest?.(
-      "a, button, h1, h2, h3, h4, h5, h6, p, span, li, figcaption, label, strong, em, b, i, small, code, dt, dd, th, td",
-    );
-
-    return textElement?.textContent?.trim() ? textElement : null;
-  };
-
-  const getMaskData = (source) => {
-    const cached = maskCache.get(source);
-    if (cached && cached.version === maskLayoutVersion) {
-      return {
-        rect: new DOMRect(
-          cached.isViewportFixed ? cached.viewportLeft : cached.documentLeft - window.scrollX,
-          cached.isViewportFixed ? cached.viewportTop : cached.documentTop - window.scrollY,
-          cached.width,
-          cached.height,
-        ),
-        lines: cached.lines,
-      };
-    }
-
-    const sourceRect = source.getBoundingClientRect();
-    const isViewportFixed = Boolean(source.closest(".site-header"));
-
-    const walker = document.createTreeWalker(source, NodeFilter.SHOW_TEXT);
-    const lineMap = new Map();
-    let node = walker.nextNode();
-
-    while (node) {
-      for (let index = 0; index < node.textContent.length; index += 1) {
-        const range = document.createRange();
-        range.setStart(node, index);
-        range.setEnd(node, index + 1);
-        const rect = range.getBoundingClientRect();
-        range.detach?.();
-        if (!rect.width || !rect.height) continue;
-
-        const lineKey = Math.round(rect.top * 10) / 10;
-        const line = lineMap.get(lineKey) || {
-          text: "",
-          x: rect.left - sourceRect.left,
-          top: rect.top - sourceRect.top,
-        };
-        line.text += node.textContent[index];
-        lineMap.set(lineKey, line);
-      }
-      node = walker.nextNode();
-    }
-
-    const lines = Array.from(lineMap.values()).sort((first, second) => first.top - second.top);
-    maskCache.set(source, {
-      version: maskLayoutVersion,
-      width: sourceRect.width,
-      height: sourceRect.height,
-      documentLeft: sourceRect.left + window.scrollX,
-      documentTop: sourceRect.top + window.scrollY,
-      viewportLeft: sourceRect.left,
-      viewportTop: sourceRect.top,
-      isViewportFixed,
-      lines,
-    });
-    return { rect: sourceRect, lines };
-  };
-
-  const applyMaskText = (source, lines) => {
-    const computed = window.getComputedStyle(source);
-    const fontSize = Number.parseFloat(computed.fontSize) || 16;
-    globalCursorMaskText.setAttribute("font-family", computed.fontFamily);
-    globalCursorMaskText.setAttribute("font-size", computed.fontSize);
-    globalCursorMaskText.setAttribute("font-weight", computed.fontWeight);
-    globalCursorMaskText.setAttribute("font-style", computed.fontStyle);
-    globalCursorMaskText.setAttribute("letter-spacing", computed.letterSpacing);
-    globalCursorMaskText.replaceChildren(
-      ...lines.map((line) => {
-        const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-        tspan.setAttribute("x", line.x.toFixed(2));
-        tspan.setAttribute("y", (line.top + fontSize * 0.82).toFixed(2));
-        tspan.textContent = line.text;
-        return tspan;
-      }),
-    );
-  };
-
-  const updateTextMask = (textElement, forceRefresh = false) => {
-    if (!textElement) {
-      activeTextElement = null;
-      activeTextVersion = -1;
-      globalCursorTextOverlay.classList.remove("is-visible");
-      globalCursorMaskText.replaceChildren();
-      return;
-    }
-
-    const needsRefresh =
-      forceRefresh ||
-      textElement !== activeTextElement ||
-      activeTextVersion !== maskLayoutVersion;
-    const maskData = getMaskData(textElement);
-    if (needsRefresh) {
-      applyMaskText(textElement, maskData.lines);
-      activeTextElement = textElement;
-      activeTextVersion = maskLayoutVersion;
-    }
-
-    globalCursorMaskText.setAttribute(
-      "transform",
-      `translate(${maskData.rect.left.toFixed(2)} ${maskData.rect.top.toFixed(2)})`,
-    );
-    globalCursorTextOverlay.classList.add("is-visible");
-    maskLayoutDirty = false;
-  };
-
-  const invalidateMaskLayout = () => {
-    maskLayoutVersion += 1;
-    maskLayoutDirty = true;
-    if (cursorVisible && !cursorRafId) cursorRafId = requestAnimationFrame(renderGlobalCursor);
-  };
 
   const updateGlobalCursor = (event) => {
     target.x = event.clientX;
     target.y = event.clientY;
-    const nextSuppressCursorText = Boolean(event.target?.closest?.(".work-veil"));
-    if (nextSuppressCursorText !== suppressCursorText) {
-      suppressCursorText = nextSuppressCursorText;
-      if (suppressCursorText) updateTextMask(null);
-    }
     if (!cursorVisible) {
       cursorVisible = true;
       globalCursor.classList.add("is-visible");
@@ -203,7 +60,6 @@ if (
   const hideGlobalCursor = () => {
     cursorVisible = false;
     globalCursor.classList.remove("is-visible");
-    globalCursorTextOverlay.classList.remove("is-visible");
     if (cursorRafId) {
       cancelAnimationFrame(cursorRafId);
       cursorRafId = 0;
@@ -214,54 +70,12 @@ if (
     current.x += (target.x - current.x) * followRate;
     current.y += (target.y - current.y) * followRate;
     globalCursor.style.transform = `translate3d(${current.x}px, ${current.y}px, 0) translate(-50%, -50%)`;
-
-    const pointX = Math.max(0, Math.min(window.innerWidth - 1, current.x));
-    const pointY = Math.max(0, Math.min(window.innerHeight - 1, current.y));
-    const pointerMoved =
-      Math.abs(pointX - lastHitTestX) > 0.5 || Math.abs(pointY - lastHitTestY) > 0.5;
-    const scrollChanged = window.scrollY !== lastMaskScrollY;
-    if (pointerMoved || scrollChanged || maskLayoutDirty) {
-      if (suppressCursorText) {
-        if (activeTextElement) updateTextMask(null);
-      } else if (pointerMoved) {
-        lastHitTestX = pointX;
-        lastHitTestY = pointY;
-        const nextTextElement = getTextElement(pointX, pointY);
-        if (
-          nextTextElement !== activeTextElement ||
-          maskLayoutDirty ||
-          (scrollChanged && activeTextElement)
-        ) {
-          updateTextMask(nextTextElement, maskLayoutDirty || scrollChanged);
-        }
-      } else if (activeTextElement) {
-        updateTextMask(activeTextElement, maskLayoutDirty);
-      }
-      lastMaskScrollY = window.scrollY;
-    }
-    if (activeTextElement && !suppressCursorText) {
-      globalCursorTextCircle.setAttribute("cx", current.x.toFixed(2));
-      globalCursorTextCircle.setAttribute("cy", current.y.toFixed(2));
-      globalCursorTextCircle.setAttribute("r", cursorRadius.toFixed(2));
-    }
     const cursorSettled =
       Math.abs(target.x - current.x) < 0.05 && Math.abs(target.y - current.y) < 0.05;
-    cursorRafId =
-      cursorVisible && (!cursorSettled || maskLayoutDirty || window.scrollY !== lastMaskScrollY)
-        ? requestAnimationFrame(renderGlobalCursor)
-        : 0;
+    cursorRafId = cursorVisible && !cursorSettled ? requestAnimationFrame(renderGlobalCursor) : 0;
   };
 
-  window.addEventListener("resize", invalidateMaskLayout, { passive: true });
-  document.fonts?.ready?.then(invalidateMaskLayout);
   window.addEventListener("pointermove", updateGlobalCursor, { passive: true });
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (cursorVisible && !cursorRafId) cursorRafId = requestAnimationFrame(renderGlobalCursor);
-    },
-    { passive: true },
-  );
   window.addEventListener("pointerleave", hideGlobalCursor, { passive: true });
   renderGlobalCursor();
 }
@@ -307,9 +121,6 @@ document.querySelectorAll("[data-project-card], [data-route-transition]").forEac
     }
 
     event.preventDefault();
-    if (element.matches("[data-project-card]")) {
-      sessionStorage.setItem("portfolio:return-target", "projects");
-    }
     playRouteLoader({ hold: true });
     window.setTimeout(() => {
       window.location.href = href;
@@ -348,28 +159,25 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
-const restorePortfolioReturnTarget = () => {
-  const shouldRestoreProjects =
-    window.location.hash === "#projects" || sessionStorage.getItem("portfolio:return-target") === "projects";
+const restoreHashTarget = () => {
+  if (!window.location.hash) return;
+  const targetId = decodeURIComponent(window.location.hash.slice(1));
+  const target = document.getElementById(targetId);
+  if (!target) return;
 
-  if (!shouldRestoreProjects) return;
-  sessionStorage.removeItem("portfolio:return-target");
-  const projects = document.querySelector("#projects");
-  if (!projects) return;
-
-  const restoreProjectsPosition = () => projects.scrollIntoView({ block: "start", behavior: "auto" });
+  const restoreTargetPosition = () => target.scrollIntoView({ block: "start", behavior: "auto" });
   window.requestAnimationFrame(() => {
-    restoreProjectsPosition();
-    window.requestAnimationFrame(restoreProjectsPosition);
-    window.setTimeout(restoreProjectsPosition, 80);
+    restoreTargetPosition();
+    window.requestAnimationFrame(restoreTargetPosition);
+    window.setTimeout(restoreTargetPosition, 80);
   });
 };
 
 window.addEventListener("pageshow", () => {
   resetRouteLoader();
-  restorePortfolioReturnTarget();
+  restoreHashTarget();
 });
-restorePortfolioReturnTarget();
+restoreHashTarget();
 
 function easeOutCubic(value) {
   return 1 - Math.pow(1 - value, 3);
@@ -549,7 +357,7 @@ if (workCurtainCanvas && !prefersReducedMotion) {
           workCurtain?.classList.add("is-fallback");
         });
       },
-      { rootMargin: "120px 0px" },
+      { rootMargin: "100% 0px" },
     );
     sceneObserver.observe(workSection);
   }
