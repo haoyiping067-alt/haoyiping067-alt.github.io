@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>郝一平 | 个人网站</title>
+    <meta
+      name="description"
+      content="郝一平个人设计网站，呈现体验设计、品牌视觉、B端设计、AIUX 工作流与项目复盘。"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080809'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23f0b44c'/%3E%3Ccircle cx='37' cy='27' r='8' fill='%23080809'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css?v=glass-type-121" />
+  </head>
+  <body>
+    <span class="global-cursor" aria-hidden="true"></span>
+    <div class="route-loader" aria-hidden="true">
+      <span class="route-loader-mark">✦</span>
+    </div>
+    <svg class="global-cursor-text-overlay" aria-hidden="true" focusable="false">
+      <defs>
+        <mask id="global-cursor-text-mask" maskUnits="userSpaceOnUse">
+          <rect class="global-cursor-mask-backdrop" width="100%" height="100%" fill="black" />
+          <text id="global-cursor-mask-text" fill="white" dominant-baseline="alphabetic"></text>
+        </mask>
+      </defs>
+      <circle id="global-cursor-text-circle" fill="black" mask="url(#global-cursor-text-mask)" />
+    </svg>
+    <header class="site-header" aria-label="网站导航">
+      <a class="brand-mark liquid" href="#home" aria-label="回到首页" data-magnet data-magnet-strength="0.08">
+        <img src="assets/jml-logo-white.png" alt="JML" width="407" height="226" />
+      </a>
+
+      <nav class="nav-pill liquid" aria-label="主要导航">
+        <a href="#home" data-magnet><span class="nav-pill-label"><span>HOME</span><span aria-hidden="true">HOME</span></span></a>
+        <a href="#projects" data-magnet><span class="nav-pill-label"><span>WORK</span><span aria-hidden="true">WORK</span></span></a>
+        <a href="#profile" data-magnet><span class="nav-pill-label"><span>ABOUT</span><span aria-hidden="true">ABOUT</span></span></a>
+        <a href="#contact" data-magnet><span class="nav-pill-label"><span>CONTACT</span><span aria-hidden="true">CONTACT</span></span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-frame" id="home" aria-labelledby="hero-title">
+        <div class="ambient-stage">
+          <video
+            class="ambient-image ambient-video is-active"
+            src="assets/command-hero-transition.mp4?v=20260728"
+            muted
+            playsinline
+            preload="auto"
+            poster="assets/command-hero-video-first.png?v=20260728-first-frame"
+            aria-hidden="true"
+          ></video>
+        </div>
+
+        <button
+          class="command-hotspot"
+          type="button"
+          aria-label="高亮 Command 键"
+          aria-pressed="false"
+        ></button>
+
+        <div class="hero-content">
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-title-image">HAO YIPING</span>
+            <span class="hero-year">PORTFOLIO</span>
+          </h1>
+          <p class="hero-lede">
+            您好，我是一名9年+工作经验的UI设计师，同时擅长ux、品牌、平面等设计，<br class="lede-break" />正致力于做一名从需求落地到代码上线的全栈ai产品设计师。
+          </p>
+        </div>
+
+        <div class="hero-footer" aria-label="作品方向">
+          <span>UX DESIGN</span>
+          <span>VISUAL DESIGN</span>
+          <span>B-SIDE PRODUCT</span>
+          <span>AIUX WORKFLOW</span>
+          <span>PROJECT REVIEW</span>
+        </div>
+      </section>
+
+      <section class="work-interlude" id="work-transition" aria-labelledby="work-interlude-title">
+        <p class="work-interlude-type" id="work-interlude-title" aria-hidden="true">
+          <span>GOOD LOOKS</span>
+          <span>MUST FOLLOW</span>
+          <span>GOOD FUNCTION</span>
+        </p>
+
+        <a class="work-veil" href="#work" aria-label="进入作品总览">
+          <img
+            class="work-veil-image"
+            src="assets/work-sunset.png"
+            alt=""
+            width="2748"
+            height="1332"
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+          />
+          <canvas
+            class="work-veil-canvas"
+            data-texture="assets/work-sunset.png"
+            aria-hidden="true"
+          ></canvas>
+          <span class="work-cursor" aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <section class="work section-frame" id="work-index-legacy" aria-labelledby="work-title" hidden>
+        <div class="work-lead">
+          <div class="section-heading reveal">
+            <p class="section-kicker">// Work Index</p>
+            <h2 id="work-title">用五个入口，把作品从“展示”变成“判断”。</h2>
+          </div>
+
+          <p class="section-summary reveal">
+            从作品集里抽出五条主线：品牌数字化、C端转化、社交产品、B端复杂系统和 AIUX 工作流。每个入口都对应一个可被验证的业务问题。
+          </p>
+        </div>
+
+        <div class="work-index" aria-label="作品分类">
+          <article class="work-entry work-entry-feature border-glow reveal">
+            <span class="edge-light" aria-hidden="true"></span>
+            <div class="work-entry-meta">
+              <span>00</span>
+              <span>M’CAKE</span>
+            </div>
+            <h3>品牌全链路数字化</h3>
+            <p>重构移动端与大客户官网，围绕品牌透传、下单效率和客诉问题建立完整的线上销售工具。</p>
+            <ul class="work-tags" aria-label="目录总述能力标签">
+              <li>品牌透传 +37.4%</li>
+              <li>下单效率 +17.6%</li>
+              <li>客诉下降 96.4%</li>
+            </ul>
+          </article>
+
+          <article class="work-entry border-glow reveal">
+            <span class="edge-light" aria-hidden="true"></span>
+            <div class="work-entry-meta">
+              <span>01</span>
+              <span>Original Bakery</span>
+            </div>
+            <h3>C端高转化体验</h3>
+            <p>从商品图片、加购弹窗、结算路径切入，放大用户触发点，减少学习成本和下单阻力。</p>
+            <ul class="work-tags" aria-label="体验设计能力标签">
+              <li>复购率 +13.6%</li>
+              <li>下单效率 +19.8%</li>
+              <li>热推营收 +22.8%</li>
+            </ul>
+          </article>
+
+          <article class="work-entry border-glow reveal">
+            <span class="edge-light" aria-hidden="true"></span>
+            <div class="work-entry-meta">
+              <span>02</span>
+              <span>KR2</span>
+            </div>
+            <h3>社交匹配体验</h3>
+            <p>通过头像相册、匹配路径和私聊触发点重塑，辅助用户更快判断对象并提升沟通意愿。</p>
+            <ul class="work-tags" aria-label="品牌视觉能力标签">
+              <li>私聊发起率 +23.6%</li>
+              <li>匹配成功率 +44.6%</li>
+              <li>满意度 6.8 -> 8.2</li>
+            </ul>
+          </article>
+
+          <article class="work-entry border-glow reveal">
+            <span class="edge-light" aria-hidden="true"></span>
+            <div class="work-entry-meta">
+              <span>03</span>
+              <span>B-side System</span>
+            </div>
+            <h3>复杂系统降噪</h3>
+            <p>覆盖物联网、大数据、区块链和教学平台场景，重点处理信息层级、流程架构和长期使用效率。</p>
+            <ul class="work-tags" aria-label="B端产品能力标签">
+              <li>信息降噪</li>
+              <li>课程状态筛选</li>
+              <li>Web/M端规范</li>
+            </ul>
+          </article>
+
+          <article class="work-entry border-glow reveal">
+            <span class="edge-light" aria-hidden="true"></span>
+            <div class="work-entry-meta">
+              <span>04</span>
+              <span>AIUX Workflow</span>
+            </div>
+            <h3>AIUX 工作流</h3>
+            <p>建立从 AI 推演、测试验证到数据反哺的设计链路，把重复分析、规范生成和方案筛选变成团队资产。</p>
+            <ul class="work-tags" aria-label="AIUX 工作流能力标签">
+              <li>Claude3 拆解</li>
+              <li>Cursor 辅助编码</li>
+              <li>团队效率 +120%</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="artifact-rail reveal" aria-label="作品视觉索引">
+          <figure>
+            <img src="assets/catalog-overview.png" alt="作品集目录总述预览" width="1468" height="535" />
+            <figcaption>Catalog</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/ux-design.png" alt="体验设计作品预览" width="1070" height="535" />
+            <figcaption>UX</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/visual-design.png" alt="品牌视觉作品预览" width="704" height="535" />
+            <figcaption>Visual</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/aiux-workflow.png" alt="AIUX 工作流作品预览" width="1070" height="535" />
+            <figcaption>AIUX</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="profile-showcase" id="work" aria-labelledby="work-showcase-title">
+        <div class="profile-showcase-layout">
+          <figure class="profile-showcase-media">
+            <img
+              class="profile-ripple-image webgl"
+              src="assets/profile-showcase.png"
+              alt="作品集与设计工作的工作台场景"
+              width="557"
+              height="683"
+              decoding="async"
+              data-rgb="1"
+              data-index="0"
+              data-hover-distort="true"
+              data-work-image="true"
+              data-fluid-figure="true"
+              data-i="0"
+            />
+            <figcaption>Selected work / 2026</figcaption>
+          </figure>
+
+          <div class="profile-showcase-copy">
+            <h2 id="work-showcase-title">
+              <span>从问题出发，</span>
+              <span>把设计真正落地</span>
+            </h2>
+            <div class="profile-showcase-body">
+              <p>
+                从业务策略、产品体验、系统化品牌、到团队协同及AI自动化工作流——这份作品集清晰地展示我的工作内容和我能为公司提供的帮助
+              </p>
+              <p>
+                无论您是需要C端产品、物联网与大数据B端系统还是品牌设计——都欢迎您深入探索并联络我
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="service-stack" id="services" aria-labelledby="service-stack-title">
+        <h2 class="sr-only" id="service-stack-title">设计服务</h2>
+        <div class="service-stack-stage">
+          <article class="service-slide is-active" data-service-slide="0">
+            <img
+              class="service-slide-image"
+              src="assets/service-app.jpg"
+              alt="APP 和小程序设计作品展示"
+              width="2560"
+              height="1440"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="service-slide-shade" aria-hidden="true"></div>
+            <div class="service-slide-content">
+              <h3>APP/小程序</h3>
+              <p>我通常做一款产品的核心目标有以下几点，用户体验、业务增长、转化率、品牌透传。</p>
+              <ul class="service-slide-tags" aria-label="APP 和小程序设计能力">
+                <li>用户体验</li>
+                <li>业务增长</li>
+                <li>转化率</li>
+                <li>品牌透传</li>
+              </ul>
+              <a class="service-slide-contact" href="#contact">
+                <span>联系</span>
+                <span class="service-slide-star" aria-hidden="true">✦</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-slide" data-service-slide="1">
+            <img
+              class="service-slide-image"
+              src="assets/service-web.jpg"
+              alt="WEB 和 SaaS 设计作品展示"
+              width="2560"
+              height="1440"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="service-slide-shade" aria-hidden="true"></div>
+            <div class="service-slide-content">
+              <h3>WEB/SaaS</h3>
+              <p>门户、仪表盘、数据工具、可视大屏，全栈设计开发。</p>
+              <ul class="service-slide-tags" aria-label="WEB 和 SaaS 设计能力">
+                <li>全栈</li>
+                <li>软件</li>
+              </ul>
+              <a class="service-slide-contact" href="#contact">
+                <span>联系</span>
+                <span class="service-slide-star" aria-hidden="true">✦</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-slide" data-service-slide="2">
+            <img
+              class="service-slide-image"
+              src="assets/service-brand.jpg"
+              alt="品牌升级和平面物料设计作品展示"
+              width="2560"
+              height="1440"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="service-slide-shade" aria-hidden="true"></div>
+            <div class="service-slide-content">
+              <h3>品牌升级/平面物料</h3>
+              <p>构建用户与品牌之间的情感契约，同时把品牌透传应用到公司多使用场景，旨在提升品牌权威性</p>
+              <ul class="service-slide-tags" aria-label="品牌升级和平面物料设计能力">
+                <li>品牌</li>
+                <li>平面</li>
+                <li>物料</li>
+              </ul>
+              <a class="service-slide-contact" href="#contact">
+                <span>联系</span>
+                <span class="service-slide-star" aria-hidden="true">✦</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="featured-projects section-frame" id="projects" aria-labelledby="featured-projects-title">
+        <div class="featured-projects-intro">
+          <h2 id="featured-projects-title"><span>FEATURED</span><span>WORKS</span></h2>
+          <div class="scroll-orbit" aria-label="SCROLL">
+            <svg class="scroll-orbit-art" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+              <defs>
+                <path id="scroll-orbit-path" d="M100,100 m-73,0 a73,73 0 1,1 146,0 a73,73 0 1,1 -146,0" />
+              </defs>
+              <g class="scroll-orbit-rotor">
+                <g class="scroll-orbit-ring">
+                  <text text-anchor="middle"><textPath href="#scroll-orbit-path" startOffset="12.5%">SCROLL</textPath></text>
+                  <text text-anchor="middle"><textPath href="#scroll-orbit-path" startOffset="37.5%">SCROLL</textPath></text>
+                  <text text-anchor="middle"><textPath href="#scroll-orbit-path" startOffset="62.5%">SCROLL</textPath></text>
+                  <text text-anchor="middle"><textPath href="#scroll-orbit-path" startOffset="87.5%">SCROLL</textPath></text>
+                </g>
+                <path class="scroll-orbit-star" d="M100 18C100 48 91 72 72 84C61 91 42 96 18 100C42 104 61 109 72 116C91 128 100 152 100 182C100 152 109 128 128 116C139 109 158 104 182 100C158 96 139 91 128 84C109 72 100 48 100 18Z" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="project-grid" aria-label="精选项目">
+          <a class="project-card" href="projects/mcake-brand/" data-project-card data-route-transition aria-label="打开项目：MCAKE 品牌官网">
+            <span class="project-card-media">
+              <img class="project-ripple-image webgl" src="assets/projects/mcake-website-cover.jpg" alt="MCAKE 品牌官网项目预览" width="2040" height="1200" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+            </span>
+            <span class="project-card-tags" aria-label="项目标签">
+              <span>商城</span><span>品牌官网</span><span>响应式</span><span>TOB</span>
+            </span>
+            <span class="project-card-title">MCAKE 品牌官网 <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="project-card" href="projects/mcake-miniapp/" data-project-card data-route-transition aria-label="打开项目：MCAKE 小程序">
+            <span class="project-card-media">
+              <img class="project-ripple-image webgl" src="assets/projects/mcake-miniapp.jpg" alt="MCAKE 小程序项目预览" width="1920" height="1260" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+            </span>
+            <span class="project-card-tags" aria-label="项目标签">
+              <span>移动端</span><span>业务增长</span><span>品牌透传</span>
+            </span>
+            <span class="project-card-title">MCAKE 小程序 <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="project-card" href="projects/yan-website/" data-project-card data-route-transition aria-label="打开项目：原麦山丘品牌官网">
+            <span class="project-card-media">
+              <img class="project-ripple-image webgl" src="assets/projects/yan-website.png" alt="原麦山丘品牌官网项目预览" width="1920" height="1164" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+            </span>
+            <span class="project-card-tags" aria-label="项目标签">
+              <span>品牌官网</span><span>门户</span><span>展示</span>
+            </span>
+            <span class="project-card-title">原麦山丘品牌官网 <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="project-card" href="projects/yan-miniapp/" data-project-card data-route-transition aria-label="打开项目：原麦山丘小程序">
+            <span class="project-card-media">
+              <img class="project-ripple-image webgl" src="assets/projects/yan-miniapp.png" alt="原麦山丘小程序项目预览" width="2022" height="1256" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+            </span>
+            <span class="project-card-tags" aria-label="项目标签">
+              <span>移动端</span><span>转化率</span><span>体验升级</span><span>业务增长</span>
+            </span>
+            <span class="project-card-title">原麦山丘小程序 <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="project-card" href="projects/brand-materials/" data-project-card data-route-transition aria-label="打开项目：品牌与平面物料">
+            <span class="project-card-media">
+              <img class="project-ripple-image webgl" src="assets/projects/brand-materials.jpg" alt="品牌与平面物料项目预览" width="2560" height="1440" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+            </span>
+            <span class="project-card-tags" aria-label="项目标签">
+              <span>品牌重塑</span><span>运营物料</span><span>平面设计</span>
+            </span>
+            <span class="project-card-title">品牌 / 平面 &amp; 物料 <span aria-hidden="true">↗</span></span>
+          </a>
+
+          <a class="project-card" href="projects/hougu-website/" data-project-card data-route-transition aria-label="打开项目：后古婚纱摄影品牌官网">
+            <span class="project-card-media">
+              <img class="project-ripple-image webgl" src="assets/projects/hougu-website.png" alt="后古婚纱摄影品牌官网项目预览" width="3022" height="1628" loading="lazy" decoding="async" data-fluid-figure="true" data-rgb="1" data-hover-parallax="true" data-hover-scale="0.05" data-object-position-y="1" data-corner-radius="8" />
+            </span>
+            <span class="project-card-tags" aria-label="项目标签">
+              <span>品牌官网</span><span>门户</span><span>品牌服务</span><span>商业转化</span>
+            </span>
+            <span class="project-card-title">后古婚纱摄影品牌官网 <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="about-section section-frame" id="profile" aria-labelledby="about-title">
+        <div class="about-layout">
+          <h2 class="about-title" id="about-title">ABOUT</h2>
+
+          <figure class="about-media" data-ripple-frame>
+            <img
+              class="about-ripple-image webgl"
+              src="assets/about-evan-4k.png"
+              alt="郝一平身穿黑色西装坐在椅子上的个人肖像"
+              width="4065"
+              height="4096"
+              loading="lazy"
+              decoding="async"
+              data-fluid-figure="true"
+              data-rgb="1"
+              data-hover-parallax="true"
+              data-base-scale="1.06"
+              data-hover-scale="0.05"
+              data-media-offset-x="-0.025"
+              data-object-position-y="0.78"
+              data-corner-radius="8"
+            />
+          </figure>
+
+          <div class="about-body">
+            <div class="about-prose">
+              <p>
+                您好！我叫郝一平（Evan、江木流），是一名拥有9年+工作经验的设计师。我专注于项目的用户体验和业务转化，目前正致力于做一名从需求落地到代码上线以及品牌创意设计的全栈设计师。
+              </p>
+              <p>
+                工作之余，我喜欢钓鱼和养鱼养龟，对生机勃勃的生态场景充满热情。
+              </p>
+              <p>
+                9年互联网新零售经验，兼具B端复杂系统（物联网/区块链）与C端高转化产品（千万级流量移动端）实战经验。
+              </p>
+            </div>
+
+            <a class="service-slide-contact about-contact" href="#contact">
+              <span>联系</span>
+              <span class="service-slide-star" aria-hidden="true">✦</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-section" id="experience" aria-labelledby="experience-title">
+        <div class="experience-shell">
+          <div class="experience-heading">
+            <h2 id="experience-title">WORK EXPERIENCE</h2>
+            <span>2016 — 2026</span>
+          </div>
+
+          <div class="experience-list">
+            <article class="experience-item" data-experience-item>
+              <button
+                class="experience-trigger"
+                id="experience-trigger-1"
+                type="button"
+                aria-expanded="false"
+                aria-controls="experience-panel-1"
+              >
+                <span class="experience-company">
+                  <strong>北京麦达人餐饮管理有限公司</strong>
+                  <span>2023.12 — 2026.02</span>
+                </span>
+                <span class="experience-role">UI设计主管</span>
+              </button>
+              <div
+                class="experience-panel"
+                id="experience-panel-1"
+                role="region"
+                aria-labelledby="experience-trigger-1"
+              >
+                <div class="experience-panel-inner">
+                  <div class="experience-details">
+                    <p><span>01</span>统筹 MCAKE / 原麦山丘品牌设计</p>
+                    <p><span>02</span>主导设计规范与 AI 工作流落地</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="experience-item" data-experience-item>
+              <button
+                class="experience-trigger"
+                id="experience-trigger-2"
+                type="button"
+                aria-expanded="false"
+                aria-controls="experience-panel-2"
+              >
+                <span class="experience-company">
+                  <strong>北京众智集成文化传媒有限公司</strong>
+                  <span>2020.04 — 2023.10</span>
+                </span>
+                <span class="experience-role">设计主管</span>
+              </button>
+              <div
+                class="experience-panel"
+                id="experience-panel-2"
+                role="region"
+                aria-labelledby="experience-trigger-2"
+              >
+                <div class="experience-panel-inner">
+                  <div class="experience-details">
+                    <p><span>01</span>负责全渠道视觉营销策略</p>
+                    <p><span>02</span>基于数据优化视觉体系</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="experience-item" data-experience-item>
+              <button
+                class="experience-trigger"
+                id="experience-trigger-3"
+                type="button"
+                aria-expanded="false"
+                aria-controls="experience-panel-3"
+              >
+                <span class="experience-company">
+                  <strong>北京宏诚创新科技有限公司</strong>
+                  <span>2018.03 — 2020.03</span>
+                </span>
+                <span class="experience-role">UI设计师</span>
+              </button>
+              <div
+                class="experience-panel"
+                id="experience-panel-3"
+                role="region"
+                aria-labelledby="experience-trigger-3"
+              >
+                <div class="experience-panel-inner">
+                  <div class="experience-details">
+                    <p><span>01</span>负责物联网及大数据产品全栈设计</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="experience-item" data-experience-item>
+              <button
+                class="experience-trigger"
+                id="experience-trigger-4"
+                type="button"
+                aria-expanded="false"
+                aria-controls="experience-panel-4"
+              >
+                <span class="experience-company">
+                  <strong>北京酷睿奥斯科技有限公司</strong>
+                  <span>2016.07 — 2018.01</span>
+                </span>
+                <span class="experience-role">UI设计师</span>
+              </button>
+              <div
+                class="experience-panel"
+                id="experience-panel-4"
+                role="region"
+                aria-labelledby="experience-trigger-4"
+              >
+                <div class="experience-panel-inner">
+                  <div class="experience-details">
+                    <p><span>01</span>负责软件产品的视觉体系搭建</p>
+                    <p><span>02</span>完成从 0 到 1 的项目落地</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-shell">
+          <div class="contact-intro reveal">
+            <h2 id="contact-title">CONTACT</h2>
+            <div class="contact-orbit" aria-label="CONTACT">
+              <svg class="scroll-orbit-art contact-orbit-art" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+                <defs>
+                  <path id="contact-orbit-path" d="M100,100 m-73,0 a73,73 0 1,1 146,0 a73,73 0 1,1 -146,0" />
+                </defs>
+                <g class="scroll-orbit-rotor">
+                  <g class="scroll-orbit-ring contact-orbit-ring">
+                    <text text-anchor="middle"><textPath href="#contact-orbit-path" startOffset="12.5%">CONTACT</textPath></text>
+                    <text text-anchor="middle"><textPath href="#contact-orbit-path" startOffset="37.5%">CONTACT</textPath></text>
+                    <text text-anchor="middle"><textPath href="#contact-orbit-path" startOffset="62.5%">CONTACT</textPath></text>
+                    <text text-anchor="middle"><textPath href="#contact-orbit-path" startOffset="87.5%">CONTACT</textPath></text>
+                  </g>
+                  <path class="scroll-orbit-star contact-orbit-star" d="M100 18C100 48 91 72 72 84C61 91 42 96 18 100C42 104 61 109 72 116C91 128 100 152 100 182C100 152 109 128 128 116C139 109 158 104 182 100C158 96 139 91 128 84C109 72 100 48 100 18Z" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <div class="contact-console reveal" data-contact-console aria-label="联系方式">
+            <span class="contact-signal-star" aria-hidden="true">✦</span>
+
+            <article class="contact-channel" data-contact-channel>
+              <span class="contact-channel-index">01</span>
+              <h3>EMAIL</h3>
+              <div class="contact-channel-main">
+                <a class="contact-channel-value" href="mailto:13522762545@163.com">
+                  13522762545@163.com
+                </a>
+              </div>
+              <div class="contact-channel-actions">
+                <button type="button" data-copy-value="13522762545@163.com">COPY</button>
+                <a href="mailto:13522762545@163.com">WRITE ↗</a>
+              </div>
+            </article>
+
+            <article class="contact-channel" data-contact-channel>
+              <span class="contact-channel-index">02</span>
+              <h3>WECHAT</h3>
+              <div class="contact-channel-main contact-channel-wechat">
+                <button class="contact-qr-preview" type="button" data-qr-open aria-label="放大微信二维码">
+                  <img src="assets/contact/wechat-qr.png" alt="郝一平的微信二维码" width="672" height="672" />
+                </button>
+                <span>
+                  <strong>EVAN</strong>
+                  <small>扫码添加微信</small>
+                </span>
+              </div>
+              <div class="contact-channel-actions">
+                <button type="button" data-qr-open>SHOW QR</button>
+              </div>
+            </article>
+
+            <article class="contact-channel" data-contact-channel>
+              <span class="contact-channel-index">03</span>
+              <h3>PHONE</h3>
+              <div class="contact-channel-main">
+                <a class="contact-channel-value" href="tel:+8613522762545">+86 135 2276 2545</a>
+              </div>
+              <div class="contact-channel-actions">
+                <button type="button" data-copy-value="13522762545">COPY</button>
+                <a href="tel:+8613522762545">CALL ↗</a>
+              </div>
+            </article>
+
+            <article class="contact-channel contact-channel-files" data-contact-channel>
+              <span class="contact-channel-index">04</span>
+              <h3>PDF</h3>
+              <div class="contact-documents">
+                <a href="assets/contact/hao-yiping-portfolio.pdf" download="郝一平-作品集.pdf">
+                  <span>作品集</span>
+                  <small>PDF · 8.6 MB</small>
+                  <b aria-hidden="true">↓</b>
+                </a>
+                <a href="assets/contact/hao-yiping-resume.pdf" download="郝一平-简历.pdf">
+                  <span>简历</span>
+                  <small>PDF · 429 KB</small>
+                  <b aria-hidden="true">↓</b>
+                </a>
+              </div>
+              <div class="contact-channel-actions contact-file-preview-actions">
+                <a href="assets/contact/hao-yiping-portfolio.pdf" target="_blank" rel="noopener">作品集预览 ↗</a>
+                <a href="assets/contact/hao-yiping-resume.pdf" target="_blank" rel="noopener">简历预览 ↗</a>
+              </div>
+            </article>
+
+            <p class="contact-status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <dialog class="contact-qr-dialog" id="wechat-qr-dialog" aria-labelledby="wechat-qr-title">
+          <div class="contact-qr-card" data-lenis-prevent>
+            <button class="contact-qr-close" type="button" data-qr-close aria-label="关闭二维码">×</button>
+            <p id="wechat-qr-title">WECHAT / EVAN</p>
+            <img src="assets/contact/wechat-qr.png" alt="郝一平的微信二维码" width="672" height="672" />
+            <span>扫描二维码添加微信</span>
+          </div>
+        </dialog>
+      </section>
+    </main>
+
+    <script type="module" src="script.js?v=history-scroll-nav-11"></script>
+  </body>
+</html>

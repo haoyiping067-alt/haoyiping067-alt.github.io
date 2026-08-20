@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>404 | 郝一平个人网站</title>
+    <meta name="description" content="页面暂时离开了当前坐标，返回郝一平个人网站首页。" />
+    <link rel="stylesheet" href="404.css?v=1" />
+  </head>
+  <body>
+    <div class="page-exit" aria-hidden="true"><span>✦</span></div>
+
+    <header class="error-header" aria-label="404 页面导航">
+      <a class="error-logo" href="./index.html" aria-label="返回郝一平个人网站首页">
+        <img src="assets/jml-logo-white.png" alt="JML" width="110" height="48" />
+      </a>
+
+      <div class="error-state" aria-label="当前页面状态">
+        <span class="state-light" aria-hidden="true"></span>
+        <span>PATH / UNKNOWN</span>
+      </div>
+    </header>
+
+    <main class="error-main">
+      <section class="error-stage" aria-labelledby="error-title">
+        <div class="error-ambient" aria-hidden="true">
+          <span class="ambient-star ambient-star-a">✦</span>
+          <span class="ambient-star ambient-star-b">✦</span>
+          <span class="ambient-star ambient-star-c">✦</span>
+          <span class="ambient-orbit"></span>
+        </div>
+
+        <div class="error-copy">
+          <h1 id="error-title">
+            <span>YOU LEFT</span>
+            <span>THE GRID.</span>
+          </h1>
+          <p>
+            这个页面不在当前坐标里。移动光标寻找信号，或者按下中央的 Command 键重新校准。
+          </p>
+
+          <a class="home-link" href="./index.html" data-home-link>
+            <span>返回首页</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="error-machine" aria-label="可交互的 404 控制台">
+          <div class="coordinate-readout">
+            <span id="pointer-coordinate">X 050 / Y 050</span>
+            <span id="path-status" aria-live="polite">SIGNAL LOST</span>
+          </div>
+
+          <div class="keybed" aria-label="错误代码 404">
+            <div class="error-key error-key-left" aria-hidden="true">
+              <span class="key-face">
+                <b>4</b>
+                <small>ESC</small>
+              </span>
+            </div>
+
+            <button
+              class="error-key error-key-command"
+              type="button"
+              aria-label="按下 Command 键重新校准页面"
+              aria-pressed="false"
+              data-command-key
+            >
+              <span class="key-face">
+                <b>0</b>
+                <small>COMMAND</small>
+                <span class="command-scan" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="error-key error-key-right" aria-hidden="true">
+              <span class="key-face">
+                <b>4</b>
+                <small>RETURN</small>
+              </span>
+            </div>
+          </div>
+
+          <p class="machine-hint">
+            <span>MOVE TO SEARCH</span>
+            <span>PRESS 0 TO RECALIBRATE</span>
+          </p>
+        </div>
+
+        <span class="error-cursor" aria-hidden="true">✦</span>
+      </section>
+    </main>
+
+    <footer class="error-footer">
+      <span>HAO YIPING PORTFOLIO</span>
+      <span>ERROR / 404</span>
+    </footer>
+
+    <script src="404.js?v=1" defer></script>
+  </body>
+</html>
